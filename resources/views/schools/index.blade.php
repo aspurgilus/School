@@ -15,6 +15,10 @@
     <li>{{$school->Address}}</li><br><br>
 @endforeach
 </ul>
+
+<h1>The best courses</h1>
+
+
 </body>
 </html>
 

@@ -17,7 +17,10 @@ class SchoolsController extends Controller
 	}
 	public function store()
 	{
-		school::creating(\request(['name','city','address']));
+		school::creating(\request()->validate([
+			'name' => ['required','min:4'],
+			'city' => ['required','min:2'],
+			'address' => ['required','min:6']]));
 		return redirect('/schools');
 	}
 	public function show(School $school)
@@ -30,7 +33,10 @@ class SchoolsController extends Controller
 	}
 	public function update(School $school)
 	{
-		$school->update(\request(['name','city','address']));
+		$school->update(\request()->validate([
+			'name' => ['required','min:4'],
+			'city' => ['required','min:2'],
+			'address' => ['required','min:6']]));
 
 		return redirect('/schools');
 	}

@@ -12,4 +12,10 @@ class School extends Model
 	protected $City = 'unknown';
 	protected $Address = 'unknown';
     protected $fillable = ['Name','City','Address'];*/
+
+
+	public function courses()
+	{
+		return $this->hasMany(Course::class);
+	}
 }

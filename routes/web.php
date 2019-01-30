@@ -46,3 +46,5 @@ Route::delete('/home/{id}', 'HomeController@destroy');*/
 Route::get('/MoscowMain','PagesController@MoscowMain');
 
 Route::resource('/schools','SchoolsController');
+
+Route::resource('/courses','CourseController');

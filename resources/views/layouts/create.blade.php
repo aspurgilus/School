@@ -23,7 +23,7 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-right">Введите название вашей школы</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+                                    <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}"  autofocus>
 
                                     @if ($errors->has('name'))
                                         <span class="invalid-feedback" role="alert">
@@ -36,7 +36,7 @@
                                 <label for="city" class="col-md-4 col-form-label text-md-right">Введите название города вашей школы</label>
 
                                 <div class="col-md-6">
-                                    <input id="city" type="text" class="form-control{{ $errors->has('city') ? ' is-invalid' : '' }}" name="city" value="{{ old('city') }}" required autofocus>
+                                    <input id="city" type="text" class="form-control{{ $errors->has('city') ? ' is-invalid' : '' }}" name="city" value="{{ old('city') }}"  autofocus>
 
                                     @if ($errors->has('city'))
                                         <span class="invalid-feedback" role="alert">
@@ -49,7 +49,7 @@
                                 <label for="address" class="col-md-4 col-form-label text-md-right">Введите адресс вашей школы</label>
 
                                 <div class="col-md-6">
-                                    <input id="address" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" name="address" value="{{ old('address') }}" required autofocus>
+                                    <input id="address" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" name="address" value="{{ old('address') }}"  autofocus>
 
                                     @if ($errors->has('address'))
                                         <span class="invalid-feedback" role="alert">
