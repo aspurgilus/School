@@ -27,11 +27,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::resource('home','HomeController');
 
-/*Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/home/form1', 'HomeController@form1');
+Route::get('/home', 'HomeController@index')->name('home');
+
+/*Route::get('/home/form1', 'HomeController@form1');
 
 Route::post('/home', 'HomeController@store1');
 
@@ -45,4 +45,4 @@ Route::delete('/home/{id}', 'HomeController@destroy');*/
 
 Route::get('/MoscowMain','PagesController@MoscowMain');
 
-Route::get('/schools','SchoolsController@index');
+Route::resource('/schools','SchoolsController');

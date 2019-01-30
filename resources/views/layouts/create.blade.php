@@ -16,7 +16,7 @@
                             </div>
                         @endif
 
-                        <form action="/home" method="post">
+                        <form action="/schools" method="post">
                             {{csrf_field()}}
 
                             <div class="form-group row">

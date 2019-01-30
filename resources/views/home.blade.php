@@ -9,7 +9,7 @@
             <div class="card">
 
                 <div class="card-header">Для заполнения данных касательно вашей школы, пройдите по нижестоящим пунктам меню</div>
-                <div class="link"><a href="/home/create">Общая информация</a></div>
+                <div class="link"><a href="/schools/create">Общая информация</a></div>
                 <div class="link"><a href="/home/form2">Курсы</a></div>
                 <div class="link"><a href="/home/form3">Мероприятия</a></div>
                 <div class="link"><a href="/home/form4">Преподаватели</a></div>
@@ -21,7 +21,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                        <div class="link"><a href="/schools">Показать все данные</a></div>
                 </div>
             </div>
         </div>

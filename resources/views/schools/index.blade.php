@@ -10,7 +10,7 @@
 <h1>The best schools</h1>
 <ul>
 @foreach($schools as $school)
-    <li>{{$school->Name}}</li>
+    <li><a href="/schools/{{$school->id}}">{{$school->Name}}</a> </li>
     <li>{{$school->City}}</li>
     <li>{{$school->Address}}</li><br><br>
 @endforeach

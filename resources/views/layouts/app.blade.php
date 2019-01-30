@@ -27,6 +27,17 @@
         color:#4c110f;
 
     }
+    table{
+        padding:20px;
+        text-align:center;
+
+    }
+    table tr,td,th{
+        border:1px solid black;
+        padding:20px;
+    }
+
+
 </style>
 <body>
 <div id="app">
