@@ -13,7 +13,7 @@ class SchoolsController extends Controller
 	}
 	public function create()
 	{
-		return view('layouts.create');
+		return view('schools.create');
 	}
 	public function store()
 	{
@@ -25,11 +25,11 @@ class SchoolsController extends Controller
 	}
 	public function show(School $school)
 	{
-		return view('/layouts.show',compact('school'));
+		return view('/schools.show',compact('school'));
 	}
 	public function edit(School $school)
 	{
-		return view('/layouts.edit',compact('school'));
+		return view('/schools.edit',compact('school'));
 	}
 	public function update(School $school)
 	{

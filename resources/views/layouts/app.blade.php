@@ -36,6 +36,9 @@
         border:1px solid black;
         padding:20px;
     }
+    img{
+        width:200px;
+    }
 
 
 </style>
