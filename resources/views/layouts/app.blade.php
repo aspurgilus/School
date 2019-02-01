@@ -39,7 +39,12 @@
     img{
         width:200px;
     }
-
+    .isCompleted{
+        color:green;
+    }
+    .isnotCompleted{
+        color:red;
+    }
 
 </style>
 <body>

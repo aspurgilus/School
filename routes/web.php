@@ -48,3 +48,5 @@ Route::get('/MoscowMain','PagesController@MoscowMain');
 Route::resource('/schools','SchoolsController');
 
 Route::resource('/courses','CourseController');
+
+Route::resource('/actions','ActionController');

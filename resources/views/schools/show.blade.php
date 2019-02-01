@@ -20,6 +20,7 @@
         </table>
         @if ($school->courses->count())
             <ul>
+                <h2>Курсы этой школы:</h2>
                 @foreach($school->courses as $course)
                     <li>Название курса: <a href="#">{{$course->Name}}</a></li>
                     <li>Лого курса: <img src="{{$course->Logo}}"></li>
@@ -29,6 +30,18 @@
             </ul>
         @endif
 
+        @if ($school->actions->count())
+            <ul>
+                <h2>Мероприятия этой школы:</h2>
+                @foreach($school->actions as $action)
+                    <li>Название мероприятия: <a href="#">{{$action->Name}}</a></li>
+                    <li>Логотип мероприятия: <img src="{{$action->Logo}}"></li>
+                    <li>Дата и время проведения: {{$action->DateTime}}</li>
+                    <li>Место проведения: {{$action->Place}}</li>
+                    <li>Статус проведения: <span class={{$action->Completed ? 'isCompleted' : 'isnotCompleted'}}> {{$action->Completed ? 'Завершено' : 'Не завершено'}}</span></li><br><br>
+                @endforeach
+            </ul>
+        @endif
 
         <form method="POST" action="/schools/{{$school->id}}">
             @method('DELETE')
