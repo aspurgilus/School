@@ -23,7 +23,7 @@
                                     <form action="/actions/{{$action->id}}" method="POST">
                                         @method('PATCH')
                                         @csrf
-                                        <label for="completed">{{$action->Name}}
+                                        <label class="label" for="completed">{{$action->Name}}
                                         <input type="checkbox" name="completed" onchange="this.form.submit()" {{$action->Completed ? 'checked' : ''}}>
                                         </label>
                                     </form>
@@ -32,7 +32,9 @@
                                 <div>Логотип мероприятия: <img src="{{$action->Logo}}"></div>
                                 <div>Дата и время проведения: {{$action->DateTime}}</div>
                                 <div>Место проведения: {{$action->Place}}</div>
-                                <div>Статус проведения: <span class={{$action->Completed ? 'isCompleted' : 'isnotCompleted'}}> {{$action->Completed ? 'Завершено' : 'Не завершено'}}</span></div><br><br>
+                                <div>Плата за вход: {{$action->Cost}}</div>
+                                <div>Статус проведения: <span class={{$action->Completed ? 'isCompleted' : 'isnotCompleted'}}> {{$action->Completed ? 'Завершено' : 'Не завершено'}}</span></div>
+                                <a href="/actions/{{$action->id}}/edit">Редактировать</a><br><br>
                             @endforeach
                         <a href="/actions/create">Добавить мероприятие</a>
                         </div>

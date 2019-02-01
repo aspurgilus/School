@@ -34,7 +34,7 @@
             <ul>
                 <h2>Мероприятия этой школы:</h2>
                 @foreach($school->actions as $action)
-                    <li>Название мероприятия: <a href="#">{{$action->Name}}</a></li>
+                    <li>Название мероприятия: <a href="/actions/{{$action->id}}/edit">{{$action->Name}}</a></li>
                     <li>Логотип мероприятия: <img src="{{$action->Logo}}"></li>
                     <li>Дата и время проведения: {{$action->DateTime}}</li>
                     <li>Место проведения: {{$action->Place}}</li>

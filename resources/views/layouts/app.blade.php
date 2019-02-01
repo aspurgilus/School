@@ -45,6 +45,9 @@
     .isnotCompleted{
         color:red;
     }
+    .label{
+        font-weight:bold;
+    }
 
 </style>
 <body>
