@@ -16,7 +16,7 @@ class CreateActionsTable extends Migration
         Schema::create('actions', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('school_id');
-            $table->string('Name',32);
+            $table->string('Name',32)->default('');
             $table->string('Logo',256)->default('');
             $table->dateTime('DateTime');
             $table->string('Place',256);

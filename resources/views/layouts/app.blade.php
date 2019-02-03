@@ -24,7 +24,7 @@
         margin-left:40px;
     }
     .link a:link,a:visited{
-        color:#4c110f;
+        color:blue;
 
     }
     table{

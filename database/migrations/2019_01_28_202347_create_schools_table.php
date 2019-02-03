@@ -15,10 +15,12 @@ class CreateSchoolsTable extends Migration
     {
         Schema::create('schools', function (Blueprint $table) {
             $table->increments('id');
-			$table->string('Name',32);
-            $table->string('City',32);
-            $table->string('Address',256);
+            $table->unsignedInteger('Owner_id');
+			$table->string('Name',32)->default('');
+            $table->string('City',32)->default('');
+            $table->string('Address',256)->default('');
             $table->timestamps();
+			$table->foreign('Owner_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

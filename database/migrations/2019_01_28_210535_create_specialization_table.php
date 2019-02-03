@@ -15,7 +15,7 @@ class CreateSpecializationTable extends Migration
     {
         Schema::create('specialization', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('Name',32);
+            $table->string('Name',32)->default('Косметология');
             $table->integer('school_id',false,true);
             $table->timestamps();
         });

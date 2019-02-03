@@ -17,9 +17,10 @@ class CreateCoursesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('school_id');
             $table->string('Name',64)->default('');
-			$table->string('Logo',256);
+			$table->string('Logo',256)->default('#');
 			$table->unsignedInteger('Hours');
 			$table->integer('Cost');
+			$table->unsignedInteger('teacher_id');
 			$table->timestamps();
         });
     }

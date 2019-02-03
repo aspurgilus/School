@@ -1,21 +1,24 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-<h1>The best schools</h1>
-<ul>
-@foreach($schools as $school)
-    <li><a href="/schools/{{$school->id}}">{{$school->Name}}</a> </li>
-    <li>{{$school->City}}</li>
-    <li>{{$school->Address}}</li><br><br>
-@endforeach
-</ul>
+@extends('layouts.app')
 
-</body>
-</html>
+@section('title','Школы')
+
+@section('content')
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            @if(!$schoolLimit)
+            <a class="link" href="/schools/create">Добавить школу</a>
+            @endif
+            <h1>The best schools</h1>
+            <ul>
+            @foreach($schools as $school)
+                <li><a href="/schools/{{$school->id}}">{{$school->Name}}</a> </li>
+                <li>{{$school->City}}</li>
+                <li>{{$school->Address}}</li><br><br>
+            @endforeach
+            </ul>
+        </div>
+    </div>
+@endsection
+
 
