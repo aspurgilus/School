@@ -47,17 +47,18 @@ class SchoolsController extends Controller
 	}
 	public function edit(School $school)
 	{
-		abort_if(auth()->id() !== $school->Owner_id,403);
+		$this->authorize('edit',$school);
 		return view('/schools.edit',compact('school'));
 	}
 	public function update(School $school)
 	{
+		$this->authorize('update',$school);
 		$school->updateRecord();
 		return redirect('/schools');
 	}
 	public function destroy(School $school)
 	{
-		abort_if(auth()->id() !== $school->Owner_id,403);
+		$this->authorize('delete',$school);
 		$school->delete();
 		return redirect('/schools');
 	}

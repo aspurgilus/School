@@ -17,7 +17,7 @@
                         @endif
 
                         <form action="/schools" method="post">
-                            {{csrf_field()}}
+                            @csrf
 
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">Введите название вашей школы</label>
