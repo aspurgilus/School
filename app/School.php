@@ -3,12 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\SchoolCreated;
+use App\Events\SchoolCreated;
 
 class School extends Model
 {
 	protected $guarded = [];
+
+	protected $dispatchesEvents = [
+		'created' => SchoolCreated::class
+	];
 
 	/*protected $Name = 'unknown';
 	protected $City = 'unknown';

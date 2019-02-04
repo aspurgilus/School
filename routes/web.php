@@ -21,6 +21,9 @@ PATCH / projects/{project} (update)
 DELETE /projects/{project} (destroy)
 */
 Route::get('/', function () {
+	/*$user = App\User::first();
+	$user->notify(new \App\Notifications\SubscriptionRenewalFailed());*/
+
     return view('welcome');
 });
 

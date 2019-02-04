@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\School;
-use App\Events\SchoolCreated;
+
 
 
 class SchoolsController extends Controller
@@ -36,8 +36,7 @@ class SchoolsController extends Controller
 			//auth()->user()->schools()->create($attributes);
 
 			$attributes['Owner_id'] = auth()->id();
-			$school = School::create($attributes);
-			event(new SchoolCreated($school));
+			School::create($attributes);
 			return redirect('/schools');
 	}
 	public function show(School $school)
