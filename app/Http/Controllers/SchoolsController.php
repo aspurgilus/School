@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 
-use App\Mail\SchoolCreated;
 use Illuminate\Http\Request;
 use App\School;
-use Illuminate\Support\Facades\Mail;
+use App\Events\SchoolCreated;
 
 
 class SchoolsController extends Controller
@@ -34,11 +33,12 @@ class SchoolsController extends Controller
 	public function store()
 		{
 			$attributes = $this->validateSchool();
+			//auth()->user()->schools()->create($attributes);
+
 			$attributes['Owner_id'] = auth()->id();
 			$school = School::create($attributes);
-			Mail::to($school->owner->email)->send(new SchoolCreated($school,date('d.m.Y H:i:s',time())));
-
-		return redirect('/schools');
+			event(new SchoolCreated($school));
+			return redirect('/schools');
 	}
 	public function show(School $school)
 	{
