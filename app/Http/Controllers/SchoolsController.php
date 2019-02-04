@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Mail\SchoolCreated;
 use Illuminate\Http\Request;
 use App\School;
+use Illuminate\Support\Facades\Mail;
+
 
 class SchoolsController extends Controller
 {
@@ -13,31 +17,26 @@ class SchoolsController extends Controller
 
 	public function index() {
     	$schools = School::all();
-		$schoolLimit = false;
-		foreach($schools as $school) {
-			if(auth()->id() == $school->Owner_id)
-				$schoolLimit = true;
+		if(auth()->user()) {
+    		$schoolLimit = auth()->user()->schools;
+    	}
+    	else {
+    		$schoolLimit = true;
 		}
     	return view('schools.index',compact('schools','schoolLimit'));
 	}
 	public function create()
 	{
-		$schools = School::all();
-		foreach($schools as $school) {
-			abort_if(auth()->id() == $school->Owner_id,403);
-		}
+		$schools = auth()->user()->schools;
+		abort_if($schools,403);
 		return view('schools.create');
 	}
 	public function store()
 		{
-			$attributes = \request()->validate([
-			'name' => ['required','min:4'],
-			'city' => ['required','min:2'],
-			'address' => ['required','min:6']]);
-
+			$attributes = $this->validateSchool();
 			$attributes['Owner_id'] = auth()->id();
-
-			School::create($attributes);
+			$school = School::create($attributes);
+			Mail::to($school->owner->email)->send(new SchoolCreated($school,date('d.m.Y H:i:s',time())));
 
 		return redirect('/schools');
 	}
@@ -53,7 +52,7 @@ class SchoolsController extends Controller
 	public function update(School $school)
 	{
 		$this->authorize('update',$school);
-		$school->updateRecord();
+		$school->update($this->validateSchool());
 		return redirect('/schools');
 	}
 	public function destroy(School $school)
@@ -61,5 +60,11 @@ class SchoolsController extends Controller
 		$this->authorize('delete',$school);
 		$school->delete();
 		return redirect('/schools');
+	}
+	public function validateSchool() {
+		return \request()->validate([
+			'name' => ['required','min:4'],
+			'city' => ['required','min:2'],
+			'address' => ['required','min:6']]);
 	}
 }

@@ -14,12 +14,9 @@ class School extends Model
     protected $fillable = ['Name','City','Address'];*/
 
 
-	public function updateRecord()
+	public function owner()
 	{
-		$this->update(\request()->validate([
-			'name' => ['required','min:4'],
-			'city' => ['required','min:2'],
-			'address' => ['required','min:6']]));
+		return $this->hasOne(User::class,'id','Owner_id');
 	}
 
 	public function courses()
