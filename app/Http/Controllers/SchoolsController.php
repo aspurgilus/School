@@ -37,6 +37,7 @@ class SchoolsController extends Controller
 
 			$attributes['Owner_id'] = auth()->id();
 			School::create($attributes);
+			flash('Ваша школа успешно создана');
 			return redirect('/schools');
 	}
 	public function show(School $school)
@@ -52,12 +53,14 @@ class SchoolsController extends Controller
 	{
 		$this->authorize('update',$school);
 		$school->update($this->validateSchool());
+		flash('Ваша школа была обновлена');
 		return redirect('/schools');
 	}
 	public function destroy(School $school)
 	{
 		$this->authorize('delete',$school);
 		$school->delete();
+		flash('Ваша школа была удалена');
 		return redirect('/schools');
 	}
 	public function validateSchool() {

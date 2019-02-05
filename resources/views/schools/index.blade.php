@@ -6,6 +6,9 @@
 
     <div class="row justify-content-center">
         <div class="col-md-8">
+            @if(session('message'))
+                <p>{{session('message')}}</p>
+            @endif
             @if(!$schoolLimit)
             <a class="link" href="/schools/create">Добавить школу</a>
             @endif
